@@ -1,38 +1,78 @@
 #include <iostream>
 #include <string>
-#include <windows.h>
 
 using namespace std;
 
+int money = 0;
+
+bool run = true;
+
+void see() {
+    cout << "Your money is: " << money << "$\n";
+}
+
+void add() {
+    int money_add;
+    cout << "How much money would you like to add?\n";
+    cin >> money_add;
+    money = money + (int) money_add;
+}
+
+void buy() {
+
+    string act;
+    cout << "Available products:\n";
+    cout << "1) Headphones - 200$\n";
+    cout << "2) Gaming PC - 800$\n";
+    cout << "3) Water Bottle - 1$\n";
+
+    cin >> act;
+
+    if (act == "1" || act == "1)") {
+        cout << "Ok purchasing: Headphones.\n";
+        money = money - 200;
+    }
+    else if (act == "2" || act == "2)") {
+        cout << "Ok, purchasing: Gaming PC.\n";
+        money = money - 800;
+    }
+    else if (act == "3" || act == "3)") {
+        cout << "Ok, purchasing: Water Bottle.\n";
+        money = money - 1;
+    }
+    else {
+        cout << "Undefined action.";
+    }
+}
+
 int main()
 {
-    string action;
-    bool run = true;
-
-    cout << "Welcome to  the C-Shell!\n";
+    cout << "Welcome!\n";
     while (run == true) {
-        cout << "shell > ";
-        cin >> action;
-        if (action == "help" || action == "Help") {
-            cout << "Here is a list of commands: \n";
-            cout << "help - displays a list of useful commands.\n";
-            cout << "echo - displays the text that was chosen by the user.\n";
-            cout << "quit - closes the shell app and terminates it's process.\n";
+        string act;
+        cout << "1) See my money.\n";
+        cout << "2) Add money.\n";
+        cout << "3) Buy stuff.\n";
+        cout << "4) Quit";
 
+        cin >> act;
+
+        if (act == "1" || act == "1)") {
+            see();
         }
-        else if (action == "echo" || action == "Echo") {
-            string echo_c;
-            cout << "What to display? ";
-            cin.ignore();
-            getline(cin, echo_c);
-            cout << echo_c << "\n";
+        else if (act == "2" || act == "2)") {
+            add();
         }
-        else if (action == "quit" || action == "Quit") {
-            cout << "Ok, Closing.\n";
+        else if (act == "3" || act == "3)") {
+            buy();
+        }
+        else if (act == "4" || act == "4)") {
+            cout << "Closing...";
             run = false;
         }
         else {
-            cout << "Undefined action.\n";
+            cout << "Undefined action.";
         }
-    }
+    } 
 }
+
