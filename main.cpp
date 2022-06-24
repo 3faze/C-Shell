@@ -23,5 +23,12 @@ int main()
             getline(cin, echo_c);
             cout << echo_c << "\n";
         }
+        else if (action == "quit" || action == "Quit") {
+            cout << "Ok, Closing.\n";
+            run = false;
+        }
+        else {
+            cout << "Undefined action.\n";
+        }
     }
 }
